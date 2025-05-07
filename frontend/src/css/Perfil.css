@@ -32,9 +32,11 @@
   
   .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Cambia auto-fit por auto-fill */
     gap: 20px;
-  }
+    justify-items: center; /* Asegura que los elementos estén centrados */
+    align-items: start; /* Asegura que los elementos se alineen al inicio */
+}
   
   .portfolio-item {
     text-align: center; /* Centrar el contenido */
