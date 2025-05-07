@@ -61,6 +61,21 @@ const getUserAssets = async (token) => {
   return response.data;
 };
 
+
+// Actualizar un asset por id
+const updateAsset = async (id, assetData, token) => {
+  console.log('Datos enviados al backend:', assetData); // Depuración
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.put(`/api/assets/${id}`, assetData, config);
+  return response.data;
+};
+
+
 const assetService = {
   getAssets,
   createAsset,
@@ -68,6 +83,7 @@ const assetService = {
   getAssetById,
   comentarAsset, 
   getUserAssets,
+  updateAsset, // Asegúrate de exportar la función de actualización
 
 }
 

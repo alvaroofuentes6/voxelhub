@@ -64,6 +64,9 @@ const deleteAsset = asyncHandler(async (req, res) => {
 // @route   PUT /api/assets/:id
 // @access  Private
 const updateAsset = asyncHandler(async (req, res) => {
+  console.log('Datos recibidos en el backend:', req.body); // Depuración
+  console.log('ID del asset:', req.params.id); // Depuración
+
   const { images } = req.body;
 
   const asset = await Asset.findById(req.params.id);
@@ -88,6 +91,7 @@ const updateAsset = asyncHandler(async (req, res) => {
     new: true,
   });
 
+  console.log('Asset actualizado:', updated); // Depuración
   res.status(200).json(updated);
 });
 
@@ -97,7 +101,7 @@ const updateAsset = asyncHandler(async (req, res) => {
 const getAssetById = asyncHandler(async (req, res) => {
   const asset = await Asset.findById(req.params.id)
     .populate('user', 'name') // autor
-    .populate('comments.user', 'name');
+    .populate('comments.user', 'name profileImage') // usuario que hizo el comentario;
 
   if (!asset) {
     res.status(404);

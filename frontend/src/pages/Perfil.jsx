@@ -82,7 +82,7 @@ function Perfil() {
             {assets
               .slice(0, mostrarTodos ? assets.length : 6) // Mostrar 6 assets por defecto
               .map((asset, index) => (
-                <AssetItem key={index} asset={asset} />
+                <AssetItem key={index} asset={asset} isProfile={true} /> // Pasa `isProfile` como true
               ))}
           </div>
         )}
