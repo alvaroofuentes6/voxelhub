@@ -9,3 +9,5 @@ google-service-account.json
 
 # Ignorar cualquier otro archivo .json en caso de que contenga datos sensibles
 *.json
+
+backend/google-service-account.json
